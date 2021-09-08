@@ -1,5 +1,6 @@
 package org.ada.school.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,6 +13,13 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 public class SecurityConfiguration
         extends WebSecurityConfigurerAdapter
 {
+    JwtRequestFilter jwtRequestFilter;
+
+    public SecurityConfiguration( @Autowired JwtRequestFilter jwtRequestFilter )
+    {
+        this.jwtRequestFilter = jwtRequestFilter;
+    }
+
     @Override
     protected void configure( HttpSecurity http )
             throws Exception
