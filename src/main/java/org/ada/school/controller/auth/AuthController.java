@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.ada.school.utils.Constants.CLAIMS_ROLES_KEY;
-import static org.ada.school.utils.Constants.TOKEN_DURATION_MINUTES;
-
 import java.util.Calendar;
 import java.util.Date;
+
+import static org.ada.school.utils.Constants.CLAIMS_ROLES_KEY;
+import static org.ada.school.utils.Constants.TOKEN_DURATION_MINUTES;
 
 @RestController
 @RequestMapping( "v1/auth" )
 public class AuthController
 {
 
-    @Value( "${app.secret}")
+    @Value( "${app.secret}" )
     String secret;
 
     private final UserService userService;
